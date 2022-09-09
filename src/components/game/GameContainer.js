@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { getCharacter } from "../../managers/GameManager"
+import { getGame } from "../../managers/GameManager"
 import { getCurrentSituation } from "../../managers/SituationManager"
 import { useState, useEffect } from "react"
 import { GameTest } from "./GameTest"
@@ -9,40 +9,30 @@ import "./Game.css"
 
 export const GameContainer = () => {
     const [gameLog, setGameLog] = useState("")
-    const { characterId } = useParams()
-    const [character, setCharacter] = useState({})
-    const [situation, setSituation] = useState({})
+    const { gameId } = useParams()
+    const [game, setGame] = useState({})
 
     useEffect(
         () => {
-            if (characterId) {
-                getCharacter(characterId).then(setCharacter)
+            if (gameId) {
+                getGame(gameId).then(setGame)
             }
         },
         []
-    )
-
-    useEffect(
-        () => {
-            if (character.current_situation) {
-                getCurrentSituation(character?.current_situation?.id, characterId).then(setSituation)
-            }
-        },
-        [character]
     )
 
     return <>
         <div className="game-container-div">
             <div className="game-text-div">
                 {
-                    (situation.choice_data)
-                    ? <GameTest situation={situation} characterId={characterId} setCharacter={setCharacter} />
+                    (game.current_situation)
+                    ? <GameTest game={game} setGame={setGame} />
                     : <></>
                 }
             </div>
             <div className="inventory-div">
                 <QuitButton />
-                <Inventory character={character} />
+                <Inventory game={game} />
             </div>
         </div>
     </>

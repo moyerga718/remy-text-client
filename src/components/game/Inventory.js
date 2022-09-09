@@ -1,13 +1,13 @@
 import { InventoryItem } from "./InventoryItem"
 
-export const Inventory = ({character}) => {
+export const Inventory = ({game}) => {
     return <div>
         <p>Inventory:</p>
         {
-            (character.items)
+            (game.items)
             ? <>
                 {
-                    character?.items.map( item => <InventoryItem item={item}/>)
+                    game?.items.map( item => <InventoryItem item={item}/>)
                 }
             </>
             : <></>
