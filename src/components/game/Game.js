@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { getCharacter } from "../../managers/GameManager"
+import { getGame } from "../../managers/GameManager"
 import { getCurrentSituation } from "../../managers/SituationManager"
 import { markChoiceAsChosen } from "../../managers/CharacterChoiceManager"
 import { updateCharacterSituation, updateCharacterSituationAndInventory } from "../../managers/GameManager"
@@ -17,7 +17,7 @@ export const Game = () => {
     useEffect(
         () => {
             if (characterId) {
-                getCharacter(characterId).then(setCharacter)
+                getGame(characterId).then(setCharacter)
             }
         },
         []
@@ -40,11 +40,11 @@ export const Game = () => {
             () => {
                 if (itemBool) {
                     updateCharacterSituationAndInventory(characterId, outcomeId, itemId).then(
-                        () => getCharacter(characterId).then(setCharacter)
+                        () => getGame(characterId).then(setCharacter)
                     )
                 } else {
                     updateCharacterSituation(characterId, outcomeId).then(
-                        () => getCharacter(characterId).then(setCharacter)
+                        () => getGame(characterId).then(setCharacter)
                     )
                 }
             }

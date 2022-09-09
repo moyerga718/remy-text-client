@@ -19,8 +19,8 @@ export const getUserGames = () => {
         .then(response => response.json())
 }
 
-export const getCharacter = (characterId) => {
-    return fetch(`http://localhost:8000/characters/${characterId}`, {
+export const getGame = (gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         }

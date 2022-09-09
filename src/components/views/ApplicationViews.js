@@ -21,7 +21,7 @@ export const ApplicationViews = ({ token, setToken, setUserId, userId, setUserna
             <Route path="/about" element={<About />} />
             <Route path="/new" element={<NewGame userId={userId}/>} />
             <Route path="/load" element={<LoadGame userId={userId}/>} />
-            <Route path="/game/:characterId" element={<GameContainer />} />
+            <Route path="/game/:gameId" element={<GameContainer />} />
         </Route>
     </Routes>
 }

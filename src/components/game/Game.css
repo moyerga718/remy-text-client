@@ -11,3 +11,26 @@
     padding: 0 4rem;
     text-align: center;
 }
+
+.game-input {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 0.5rem;
+}
+
+.game-input:focus {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    outline: none;
+    color: white;
+}
+
+.text-input-div {
+    display: flex;
+    align-items: center;
+    margin-top: 0rem;
+}
