@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: top;    
+    background: lightgray;
+    margin: 0rem;
+    padding: 0rem 0.5rem;
+}
+
+.navbar__item {
+    list-style-type: none;
+}
+
+.navbar__link{
+    color: black;
+    text-decoration: none;
+}
+
+.navbar__link__register {
+    color: black;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.navbar__link:hover {
+    color: green;
+}
+
+.navbar__link__register:hover {
+    color: green;
+}
+
+.navbar-end {
+    display: flex;
+    align-items: center;
+}

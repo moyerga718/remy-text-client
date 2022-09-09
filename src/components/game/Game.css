@@ -1,0 +1,13 @@
+.option-text {
+    cursor: pointer;
+}
+
+.game-container-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inventory-div {
+    padding: 0 4rem;
+    text-align: center;
+}

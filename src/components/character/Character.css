@@ -1,0 +1,35 @@
+.selection-text {
+    color: white;
+}
+
+.labl {
+    display : block;
+}
+
+.labl > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+.labl > input + div{ /* DIV STYLES */
+    cursor:pointer;
+}
+
+.labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
+    color: rgb(0, 255, 0);
+    border: solid 
+}
+
+.labl > input:hover + div{
+    color: rgb(0, 255, 0);
+}
+
+.submit-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+    font-family: modeseven;
+}
