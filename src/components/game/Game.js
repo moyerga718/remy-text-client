@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
-import { getCharacter } from "../../managers/CharacterManager"
+import { getCharacter } from "../../managers/GameManager"
 import { getCurrentSituation } from "../../managers/SituationManager"
 import { markChoiceAsChosen } from "../../managers/CharacterChoiceManager"
-import { updateCharacterSituation, updateCharacterSituationAndInventory } from "../../managers/CharacterManager"
+import { updateCharacterSituation, updateCharacterSituationAndInventory } from "../../managers/GameManager"
 import { InventoryItem } from "./InventoryItem"
 
 import { useState, useEffect } from "react"

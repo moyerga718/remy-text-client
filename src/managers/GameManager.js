@@ -1,17 +1,17 @@
-export const createNewCharacter = (characterObj) => {
-    return fetch('http://localhost:8000/characters', {
+export const createNewGame = (gameObj) => {
+    return fetch('http://localhost:8000/games', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         },
-        body: JSON.stringify(characterObj)
+        body: JSON.stringify(gameObj)
     })
         .then(response => response.json())
 }
 
-export const getUserCharacters = () => {
-    return fetch('http://localhost:8000/characters/my_characters', {
+export const getUserGames = () => {
+    return fetch('http://localhost:8000/games/my_games', {
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         }
@@ -28,8 +28,8 @@ export const getCharacter = (characterId) => {
         .then(response => response.json())
 }
 
-export const deleteCharacter = (characterId) => {
-    return fetch(`http://localhost:8000/characters/${characterId}`, {
+export const deleteGame = (gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
         method: "DELETE",
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`

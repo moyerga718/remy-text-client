@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
-import { createNewCharacter } from "../../managers/CharacterManager"
+import { createNewGame } from "../../managers/GameManager"
 import { getStartingItems } from "../../managers/ItemManager"
 import { ItemRadioButton } from "./ItemRadioButton"
 import { useNavigate } from "react-router-dom"
 
 
-export const NewCharacter = ({userId}) => {
+export const NewGame = ({userId}) => {
     const navigate = useNavigate()
     const [startingItems, setStartingItems] = useState([])
-    const [character, setCharacter] = useState({
+    const [game, setGame] = useState({
         first_name: "",
         itemId: 0,
     })
@@ -21,14 +21,14 @@ export const NewCharacter = ({userId}) => {
     )
 
     const handleSubmit = () => {
-        if (character.first_name === "" || character.itemId === 0) {
+        if (game.first_name === "" || game.itemId === 0) {
             window.alert("Fill out entire form.")
         } else {
-            const characterObj = {
-                first_name: character.first_name,
-                items: [character.itemId]
+            const gameObj = {
+                first_name: game.first_name,
+                items: [game.itemId]
             }
-            createNewCharacter(characterObj).then(
+            createNewGame(gameObj).then(
                 response => navigate(`/game/${response.id}`)
             )
         }
@@ -43,12 +43,12 @@ export const NewCharacter = ({userId}) => {
                 required
                 type="text"
                 className="input"
-                value={character.first_name}
+                value={game.first_name}
                 onChange={
                     (evt) => {
-                        const copy = {...character}
+                        const copy = {...game}
                         copy.first_name = evt.target.value
-                        setCharacter(copy)
+                        setGame(copy)
                     }
                 }
             />
@@ -60,8 +60,8 @@ export const NewCharacter = ({userId}) => {
                 {
                     startingItems.map(item => <ItemRadioButton key={`starting--item--${item.id}`}
                         item={item}
-                        character={character}
-                        setCharacter={setCharacter}
+                        game={game}
+                        setGame={setGame}
                     />)
                 }
             </div>
