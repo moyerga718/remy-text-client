@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./Home.css"
 
 export const Home = ({ token, setToken, username, setUsername }) => {
+    const navigate = useNavigate()
+
     return <>
         <section>
             <div>
@@ -10,35 +12,35 @@ export const Home = ({ token, setToken, username, setUsername }) => {
             {
                 token
                     ? <>
-                        <div>
+                        <div className = "home-container">
                             <p>Hello, {username}</p>
                             <Link to="/new" className="link-text">
-                                <p> {'>'} New Game</p>
+                                {'>'} New Game
                             </Link>
                             <Link to="/load" className="link-text">
-                                <p> {'>'} Load Game</p>
+                                {'>'} Load Game
                             </Link>
                             <Link to="/about" className="link-text">
-                                <p> {'>'} About</p>
+                                {'>'} About
                             </Link>
                             <Link to="/" className="link-text" onClick={() => { 
                                 setToken('') 
                                 setUsername('')
                                 }}>
-                                <p> {'>'} Log out</p>
+                                {'>'} Log out
                             </Link>
                         </div>
                     </>
                     : <>
-                        <div>
+                        <div className = "home-container">
                             <Link to="/login" className="link-text">
-                                <p> {'>'} Sign in</p>
+                                {'>'} Sign in
                             </Link>
                             <Link to="/register" className="link-text">
-                                <p> {'>'} Sign up</p>
+                                {'>'} Sign up
                             </Link>
                             <Link to="/about" className="link-text">
-                                <p> {'>'} About</p>
+                                {'>'} About
                             </Link>
                         </div>
                     </>

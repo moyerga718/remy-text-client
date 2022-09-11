@@ -12,7 +12,7 @@ export const NavBar = ({ token, setToken, setUsername }) => {
 
             <li className="navbar__item navbar__home">
                 <Link className="navbar__link" to={`/`}>
-                    <p className="header-title">Remy</p>
+                    Remy
                 </Link>
             </li>
 

@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { getGame } from "../../managers/GameManager"
-import { getCurrentSituation } from "../../managers/SituationManager"
 import { useState, useEffect } from "react"
 import { GameTest } from "./GameTest"
 import { Inventory } from "./Inventory"
@@ -10,15 +9,26 @@ import "./Game.css"
 export const GameContainer = () => {
     const [gameLog, setGameLog] = useState("")
     const { gameId } = useParams()
+    const [initialGame, setInitialGame] = useState({})
     const [game, setGame] = useState({})
 
     useEffect(
         () => {
             if (gameId) {
-                getGame(gameId).then(setGame)
+                getGame(gameId).then(setInitialGame)
             }
         },
         []
+    )
+
+    useEffect(
+        () => {
+            if (initialGame) {
+                setGame(initialGame)
+                setGameLog(initialGame?.current_situation?.text)
+            }
+        },
+        [initialGame]
     )
 
     return <>
@@ -26,7 +36,7 @@ export const GameContainer = () => {
             <div className="game-text-div">
                 {
                     (game.current_situation)
-                    ? <GameTest game={game} setGame={setGame} />
+                    ? <GameTest game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog}/>
                     : <></>
                 }
             </div>

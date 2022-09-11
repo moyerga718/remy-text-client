@@ -49,8 +49,8 @@ export const LoadGame = ({userId}) => {
         {
             (selectedGame)
             ? <>
-                <Link to={`/game/${selectedGame}`}>Load Game</Link>
-                <p onClick={() => handleDelete()}>Delete Game</p>
+                <Link className = "link-text" to={`/game/${selectedGame}`}>Load Game</Link>
+                <p className = "link-text" onClick={() => handleDelete()}>Delete Game</p>
             </>
             : <></>
         }

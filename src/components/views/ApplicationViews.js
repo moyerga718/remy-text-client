@@ -5,7 +5,6 @@ import { Authorized } from "./Authorized"
 import { Home } from "../home/Home"
 import { NewGame } from "../new_or_load/NewGame"
 import { LoadGame } from "../new_or_load/LoadGame"
-import { Game } from "../game/Game"
 import { GameContainer } from "../game/GameContainer"
 import { About } from "../about/About"
 

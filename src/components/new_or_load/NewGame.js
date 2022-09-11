@@ -4,10 +4,13 @@ import { getStartingItems } from "../../managers/ItemManager"
 import { ItemRadioButton } from "./ItemRadioButton"
 import { useNavigate } from "react-router-dom"
 
+import "./Game.css"
 
-export const NewGame = ({userId}) => {
+
+export const NewGame = ({ userId }) => {
     const navigate = useNavigate()
     const [startingItems, setStartingItems] = useState([])
+    const [name, setName] = useState("")
     const [game, setGame] = useState({
         first_name: "",
         itemId: 0,
@@ -19,6 +22,14 @@ export const NewGame = ({userId}) => {
         },
         []
     )
+
+    const handleKeyPress = e => {
+        if (e.charCode === 13) {
+            const gameCopy = {...game}
+            gameCopy.first_name = name
+            setGame(gameCopy)
+        }
+    }
 
     const handleSubmit = () => {
         if (game.first_name === "" || game.itemId === 0) {
@@ -37,36 +48,50 @@ export const NewGame = ({userId}) => {
     return <>
         <p>Start a new game.</p>
 
-        <div className = "text-input-div">
+        <div className="char-name-div">
             <p>Character's first name:</p>
-            <input
-                required
-                type="text"
-                className="input"
-                value={game.first_name}
-                onChange={
-                    (evt) => {
-                        const copy = {...game}
-                        copy.first_name = evt.target.value
-                        setGame(copy)
+            <div className="text-field-div">
+                <p className="text-input-arrow">{"> "}</p>
+                <input
+                    required
+                    type="text"
+                    className="text-input"
+                    spellcheck="false"
+                    autoFocus
+                    value={name}
+                    onChange={
+                        (evt) => {
+                            let nameCopy = { ...name }
+                            nameCopy = evt.target.value
+                            setName(nameCopy)
+                        }
                     }
-                }
-            />
-        </div>
-
-        <div className = "item-selection-div">
-            <p>Choose a starting item:</p>
-            <div className="item-button-container">
-                {
-                    startingItems.map(item => <ItemRadioButton key={`starting--item--${item.id}`}
-                        item={item}
-                        game={game}
-                        setGame={setGame}
-                    />)
-                }
+                    onKeyPress={(e) => handleKeyPress(e)}
+                />
             </div>
         </div>
 
-        <button className ="submit-button" onClick={handleSubmit}>Click here to submit</button>
+        {
+            (game?.first_name.length > 0)
+                ? <div className="item-selection-div">
+                    <p>Choose a starting item:</p>
+                    <div className="item-button-container">
+                        {
+                            startingItems.map(item => <ItemRadioButton key={`starting--item--${item.id}`}
+                                item={item}
+                                game={game}
+                                setGame={setGame}
+                            />)
+                        }
+                    </div>
+                </div>
+                : <></>
+        }
+        
+        {
+            (game.itemId > 0)
+            ? <button className="submit-button" onClick={handleSubmit}>Click here to start game</button>
+            : <></>
+        }
     </>
 }

@@ -2,6 +2,11 @@
     color: white;
 }
 
+.selection-text:hover {
+    color:rgb(0, 255, 0);
+    cursor: pointer;
+}
+
 .labl {
     display : block;
 }
@@ -10,26 +15,62 @@
     visibility: hidden; /* Makes input not-clickable */
     position: absolute; /* Remove input from document flow */
 }
-.labl > input + div{ /* DIV STYLES */
-    cursor:pointer;
-}
 
-.labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
-    color: rgb(0, 255, 0);
-    border: solid 
-}
-
-.labl > input:hover + div{
-    color: rgb(0, 255, 0);
+.labl > input:checked + p {
+    color:rgb(0, 255, 0)
 }
 
 .submit-button {
     border: none;
     background: none;
     cursor: pointer;
-    margin: 0;
+    margin: 1rem 0 0 0;
     padding: 0;
     color: white;
     font-size: 1rem;
     font-family: modeseven;
+}
+
+.submit-button:hover {
+    color:rgb(0, 255, 0)
+}
+
+.link-text {
+    color: white;
+    text-decoration: none;
+    padding: 0rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.link-text:hover {
+    color: rgb(0,255,0);
+}
+
+.text-field-div {
+    display: flex;
+}
+
+.text-input {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    margin-top: 0rem;
+    margin-left: 0.5rem;
+    padding: 0rem;
+}
+
+.text-input-arrow {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.text-input:focus {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    outline: none;
+    color: white;
 }
