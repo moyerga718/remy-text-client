@@ -1,4 +1,23 @@
 .link-text {
     color: white;
     text-decoration: none;
+    padding: 0rem;
+    margin-top: 1rem
+}
+
+.link-text:hover {
+    color: rgb(0,255,0);
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-text-test {
+    color: white;
+}
+
+.link-text-test:hover {
+    color: rgb(0,255,0);
 }

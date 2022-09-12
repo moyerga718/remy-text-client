@@ -37,22 +37,14 @@ export const deleteGame = (gameId) => {
     })
 }
 
-export const updateCharacterSituation = (characterId, outcomeId) => {
-    return fetch(`http://localhost:8000/characters/${characterId}?outcome=${outcomeId}`, {
+export const handleAction = (gameId, actionData) => {
+    return fetch(`http://localhost:8000/games/${gameId}/handle_action`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         },
+        body: JSON.stringify(actionData)
     })
-}
-
-export const updateCharacterSituationAndInventory = (characterId, outcomeId, itemId) => {
-    return fetch(`http://localhost:8000/characters/${characterId}?outcome=${outcomeId}&item=${itemId}`, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${localStorage.getItem('auth_token')}`
-        },
-    })
+        .then(response => response.json())
 }

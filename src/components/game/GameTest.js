@@ -1,41 +1,55 @@
-import { getGame } from "../../managers/GameManager"
-import { markChoiceAsChosen } from "../../managers/CharacterChoiceManager"
-import { updateCharacterSituation, updateCharacterSituationAndInventory } from "../../managers/GameManager"
-
 import { useState, useEffect } from "react"
+import { handleAction } from "../../managers/GameManager"
 import "./Game.css"
 
-export const GameTest = ({ game, setGame }) => {
+export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
     const [actionText, setActionText] = useState("")
 
-    const handleSelection = (choiceId, outcomeId, itemBool, itemId) => {
-        // WHEN A SELECTION IS MADE - 
-        // 1. send choice ID and character ID to characterChoice view to flip that choice to true.
-        // markChoiceAsChosen(choiceId, gameId).then(
-        //     // 2. Update inventory and current situation for character 
-        //     () => {
-        //         if (itemBool) {
-        //             updateCharacterSituationAndInventory(gameId, outcomeId, itemId).then(
-        //                 () => getGame(gameId).then(setGame)
-        //             )
-        //         } else {
-        //             updateCharacterSituation(gameId, outcomeId).then(
-        //                 () => getGame(gameId).then(setGame)
-        //             )
-        //         }
-        //     }
-        // 3. Get character using gameId. This should trigger use effect to update current situation.
-        // )
+    const handleKeyPress = e => {
+        if (e.charCode === 13) {
+            handleSubmit(actionText, game)
+        }
+    }
+
+
+    const handleSubmit = (text, game) => {
+        const requestData = {
+            situationId: game.current_situation.id,
+            actionText: text
+        }
+
+        let logCopy = gameLog
+
+        handleAction(game.id, requestData).then(
+            response => {
+                if (response.action_completed === false) {
+                    logCopy += `<br /><br />> ${text}<br />${response.message}`
+                    setGameLog(logCopy)
+                    setActionText("")
+                } else {
+                    logCopy += `<br /><br />> ${text}`
+                    setGame(response.game_data)
+                    if (response.action_response.response != ""){
+                        logCopy += `<br />${response.action_response.response}`
+                    }
+                    
+                    if (response.action_response.new_situation_bool) {
+                        logCopy += `<br /><br />${response.game_data.current_situation.text}`
+                    }
+                    setGameLog(logCopy)
+                    setActionText("")
+                }
+            }
+        )
     }
 
     return <>
-
         {
             (game)
                 ? <div>
-                    <p>{game?.current_situation?.text}</p>
+                    <p dangerouslySetInnerHTML={{__html: gameLog}}/>
                     <div className = "text-input-div">
-                    <p>{'>'}</p>
+                    <p className = "game-input-arrow">{'>'}</p>
                     <input
                         required
                         type="text"
@@ -48,8 +62,10 @@ export const GameTest = ({ game, setGame }) => {
                                 setActionText(copy)
                             }
                         }
+                        onKeyPress={(e) => handleKeyPress(e)}
                     />
                     </div>
+                    {/* <button onClick={() => handleSubmit(actionText, game)}>Submit</button> */}
                 </div>
                 : <></>
         }
