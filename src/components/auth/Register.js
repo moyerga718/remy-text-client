@@ -1,18 +1,54 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../managers/AuthManager"
 
-export const Register = ({ setToken, setUserId, setUsername}) => {
+import "./Auth.css"
+
+export const Register = ({ setToken, setUserId, setUsername }) => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
     const username = useRef()
-    const bio = useRef()
     const password = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const navigate = useNavigate()
+
+    const [firstNameBool, setFirstNameBool] = useState(false)
+    const [lastNameBool, setLastNameBool] = useState(false)
+    const [usernameBool, setUsernameBool] = useState(false)
+    const [emailBool, setEmailBool] = useState(false)
+    const [passwordBool, setPasswordBool] = useState(false)
+    const [verifyBool, setVerifyBool] = useState(false)
+
+    const [isUnsuccessful, setIsUnsuccessful] = useState(false)
+
+    const handleKeyPress = e => {
+        if (e.charCode === 13) {
+            console.log(e)
+            if (e.target.name === "firstName") {
+                setFirstNameBool(true)
+            } else if (e.target.name === "lastName") {
+                setLastNameBool(true)
+            } else if (e.target.name === "username") {
+                setUsernameBool(true)
+            } else if (e.target.name === "email") {
+                setEmailBool(true)
+            } else if (e.target.name === "password") {
+                setPasswordBool(true)
+            } else if (e.target.name === "verify") {
+                setVerifyBool(true)
+                handleRegister(e)
+            }
+
+            if (isUnsuccessful) {
+                setVerifyBool(true)
+                handleRegister(e)
+            }
+        }
+
+    }
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -33,6 +69,14 @@ export const Register = ({ setToken, setUserId, setUsername}) => {
                         setUserId(res.user_id)
                         setUsername(res.username)
                         navigate("/")
+                    } else {
+                        setIsUnsuccessful(true)
+                        setFirstNameBool(false)
+                        setLastNameBool(false)
+                        setUsernameBool(false)
+                        setEmailBool(false)
+                        setPasswordBool(false)
+                        setVerifyBool(false)
                     }
                 })
         } else {
@@ -45,59 +89,142 @@ export const Register = ({ setToken, setUserId, setUsername}) => {
             <form className="column is-two-thirds" onSubmit={handleRegister}>
                 <p className="subtitle">Create an account</p>
                 <div className="field">
-                    <label className="label">First Name</label>
+                    <label className="label">First Name:</label>
                     <div className="control">
-                        <input className="input" type="text" ref={firstName} />
+                        <p>{'> '}</p>
+                        <input
+                            className="game-input"
+                            type="text"
+                            ref={firstName}
+                            name="firstName"
+                            autoFocus
+                            onKeyPress={(e) => handleKeyPress(e)}
+                            disabled={firstNameBool}
+                        />
                     </div>
                 </div>
 
-                <div className="field">
-                    <label className="label">Last Name</label>
-                    <div className="control">
-                        <input className="input" type="text" ref={lastName} />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Username</label>
-                    <div className="control">
-                        <input className="input" type="text" ref={username} />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Email</label>
-                    <div className="control">
-                        <input className="input" type="email" ref={email} />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Password</label>
-                    <div className="field-body">
-                        <div className="field">
-                            <p className="control is-expanded">
-                                <input className="input" type="password" placeholder="Password" ref={password} />
-                            </p>
+                {
+                    (firstNameBool || isUnsuccessful)
+                        ? <div className="field">
+                            <label className="label">Last Name:</label>
+                            <div className="control">
+                                <p>{'> '}</p>
+                                <input
+                                    className="game-input"
+                                    type="text"
+                                    ref={lastName}
+                                    name="lastName"
+                                    autoFocus
+                                    onKeyPress={(e) => handleKeyPress(e)}
+                                    disabled={lastNameBool}
+                                />
+                            </div>
                         </div>
+                        : <></>
+                }
 
-                        <div className="field">
-                            <p className="control is-expanded">
-                                <input className="input" type="password" placeholder="Verify Password" ref={verifyPassword} />
-                            </p>
+                {
+                    (lastNameBool || isUnsuccessful)
+                        ? <div className="field">
+                            <label className="label">Username:</label>
+                            <div className="control">
+                                <p>{'> '}</p>
+                                <input
+                                    className="game-input"
+                                    type="text"
+                                    ref={username}
+                                    name="username"
+                                    autoFocus
+                                    onKeyPress={(e) => handleKeyPress(e)}
+                                    disabled={usernameBool}
+                                />
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        : <></>
+                }
 
+                {
+                    (usernameBool || isUnsuccessful)
+                        ? <div className="field">
+                            <label className="label">Email:</label>
+                            <div className="control">
+                                <p>{'> '}</p>
+                                <input
+                                    className="game-input"
+                                    type="email"
+                                    ref={email}
+                                    name="email"
+                                    autoFocus
+                                    onKeyPress={(e) => handleKeyPress(e)}
+                                    disabled={emailBool}
+                                />
+                            </div>
+                        </div>
+                        : <></>
+                }
 
-                <div className="field is-grouped">
+                {
+                    (emailBool || isUnsuccessful)
+                        ? <div className="field">
+                            <label className="label">Password:</label>
+
+                            <div className="control">
+                                <p>{'> '}</p>
+                                <input
+                                    className="game-input"
+                                    type="password"
+                                    ref={password}
+                                    name="password"
+                                    autoFocus
+                                    onKeyPress={(e) => handleKeyPress(e)}
+                                    disabled={passwordBool}
+                                />
+                            </div>
+                        </div>
+                        : <></>
+                }
+
+                {
+                    (passwordBool || isUnsuccessful)
+                        ? <div className="field">
+                            <label className="label">Verify password:</label>
+                            <div className="control">
+                                <p>{'> '}</p>
+                                <input
+                                    className="game-input"
+                                    type="password"
+                                    ref={verifyPassword}
+                                    name="verify"
+                                    autoFocus
+                                    onKeyPress={(e) => handleKeyPress(e)}
+                                    disabled={verifyBool}
+                                />
+                            </div>
+                        </div>
+                        : <></>
+                }
+
+                {
+                    (verifyBool)
+                        ? <div className="control">
+                            <p>Creating account...</p>
+                            {/* <button className="submit-button" type="submit">Register</button> */}
+                        </div>
+                        : <></>
+
+                }
+
+                {
+                    (isUnsuccessful)
+                    ? <p className="help is-danger">User has already been made with this information. Try again.</p>
+                    : <></>
+                }
+                {/* <div className="field is-grouped">
                     <div className="control">
-                        <button className="button is-link" type="submit">Submit</button>
+                        <Link to="/login" className="link-text">Use an existing account</Link>
                     </div>
-                    <div className="control">
-                        <Link to="/login" className="button is-link is-light">Cancel</Link>
-                    </div>
-                </div>
+                </div> */}
 
             </form>
         </section>

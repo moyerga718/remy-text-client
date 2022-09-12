@@ -65,7 +65,6 @@ export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
                         onKeyPress={(e) => handleKeyPress(e)}
                     />
                     </div>
-                    {/* <button onClick={() => handleSubmit(actionText, game)}>Submit</button> */}
                 </div>
                 : <></>
         }

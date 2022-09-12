@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
 
 export const QuitButton = () => {
-    return <Link to="/"><p>Save and Quit</p></Link>
+    return <Link className="quit-button-link-text"to="/"><p>Save and Quit</p></Link>
 }

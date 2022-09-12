@@ -1,0 +1,64 @@
+.game-input {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    margin-top: 0rem;
+    margin-left: 0.5rem;
+    padding: 0rem;
+}
+
+.game-input-arrow {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.game-input:focus {
+    font-family: modeseven;
+    font-size: 1rem;
+    background: none;
+    outline: none;
+    color: white;
+}
+
+.text-input-div {
+    display: flex;
+    align-items: center;
+    margin-top: 0rem;
+    padding: 0rem;
+}
+
+.control {
+    display: flex;
+}
+
+.link-text {
+    color: white;
+    text-decoration: none;
+    padding: 0rem;
+    margin-top: 1rem
+}
+
+.link-text:hover {
+    color: rgb(0,255,0);
+}
+
+.submit-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+    font-family: modeseven;
+}
+
+.submit-button:hover {
+    color:rgb(0, 255, 0)
+}
+
+.subtitle {
+    margin-bottom: 2rem;
+}

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { getGame } from "../../managers/GameManager"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { GameTest } from "./GameTest"
 import { Inventory } from "./Inventory"
 import { QuitButton } from "./QuitButton"
@@ -11,6 +11,7 @@ export const GameContainer = () => {
     const { gameId } = useParams()
     const [initialGame, setInitialGame] = useState({})
     const [game, setGame] = useState({})
+    const bottomRef = useRef(null);
 
     useEffect(
         () => {
@@ -31,6 +32,13 @@ export const GameContainer = () => {
         [initialGame]
     )
 
+    useEffect(
+        () => {
+            bottomRef.current?.scrollIntoView();
+        }, 
+        [gameLog]
+    );
+
     return <>
         <div className="game-container-div">
             <div className="game-text-div">
@@ -39,10 +47,11 @@ export const GameContainer = () => {
                     ? <GameTest game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog}/>
                     : <></>
                 }
+                <div ref={bottomRef} />
             </div>
             <div className="inventory-div">
-                <QuitButton />
                 <Inventory game={game} />
+                <QuitButton />
             </div>
         </div>
     </>
