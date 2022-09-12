@@ -1,0 +1,11 @@
+.about-div {
+    display: flex;
+}
+
+.about-text-div {
+    width: 80%;
+}
+
+.about-text {
+    margin-bottom: 1.5rem;
+}

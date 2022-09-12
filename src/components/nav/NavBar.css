@@ -6,6 +6,10 @@
     background: lightgray;
     margin: 0rem;
     padding: 0.5rem 0;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+
 }
 
 .navbar__item navbar__home {
@@ -24,7 +28,7 @@
     color: black;
     text-decoration: none;
     padding: 0;
-    margin: 0;
+    margin-right: 0.5rem;
 }
 
 .navbar__link__register {

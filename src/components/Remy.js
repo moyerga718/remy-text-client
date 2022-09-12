@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./views/ApplicationViews"
+import "./Remy.css"
+
 
 
 export const Remy = () => {
@@ -25,6 +27,8 @@ export const Remy = () => {
 
     return <>
         <NavBar token={token} setToken={setToken} setUsername={setUsername} />
-        <ApplicationViews token={token} setToken={setToken} setUserId={setUserId} userId={userId} setUsername={setUsername} username={username}/>
+        <div className="application-views-container">
+            <ApplicationViews token={token} setToken={setToken} setUserId={setUserId} userId={userId} setUsername={setUsername} username={username}/>
+        </div>
     </>
 }
