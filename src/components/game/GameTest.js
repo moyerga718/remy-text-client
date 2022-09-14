@@ -30,7 +30,9 @@ export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
                     logCopy += `<br /><br />> ${text}`
                     setGame(response.game_data)
                     if (response.action_response.response != ""){
-                        logCopy += `<br />${response.action_response.response}`
+                        if (response.action_response.display_response_on_complete) {
+                            logCopy += `<br /><br />${response.action_response.response}`
+                        }
                     }
                     
                     if (response.action_response.new_situation_bool) {
