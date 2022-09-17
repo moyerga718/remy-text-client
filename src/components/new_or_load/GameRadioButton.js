@@ -11,8 +11,7 @@ export const GameRadioButton = ({game, setSelectedGame}) => {
                 name="game"
                 value={parseInt(game?.id)}
             />{" "}
-                    <p className="selection-text">{'> '}{game?.first_name} | Current Location: {game?.current_situation?.location} | Items Collected: {game.items.length}</p>
-
+                    <p className="selection-text">{'> '}{game?.first_name} / {game?.current_situation?.location}</p>
         </label>
     </>
 }
