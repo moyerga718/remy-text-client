@@ -7,8 +7,8 @@ export const About = () => {
                 <p className="about-text">The skin on your ankle breaks when you go to scratch this time. Three months of summer went by and you still can't resist the urge.</p>
                 <p className="about-text">You look up and see Remy a little ways ahead. He's gotten so thin you wonder if the kite he's flying could carry him out of this field. Hopefully not. It'd be a shame if his visit was cut short.</p>
                 <p className="about-text">Then you remember his visit is ending anyway. Tomorrow is August 24th—Remy's last day here and your first day of second grade.</p>
-                <p className="about-text">Something changes. Your vision fixes on the brown spot in the grass by your shoe. The back of your throat tastes like copper. The air gets heavy and hard to inhale. Eyes in the treeline.</p>
-                <p className="about-text">You manage to snap out of it, but you're shook. You run up to Remy and try to keep your voice from shaking.</p>
+                <p className="about-text">Something changes. Your vision fixes on the brown spot in the grass by your shoe. The air gets heavy. Eyes in the treeline.</p>
+                <p className="about-text">You snap out of it, but you're shook. You run up to Remy and try to keep your voice from shaking.</p>
                 <p className="about-text">"Do I really have to go tomorrow? Do YOU really have to go tomorrow?"</p>
                 <p className="about-text">He looks down and gives you that patient, knowing smile that always comforts you. He reels in the kite and kneels down next to you with some difficulty. After a short sigh, he says</p>
                 <p className="about-text">"Don't tell your dad I said this but... no. We don't have to go if we don't want to. We should, we've got obligations to fulfill, but you never HAVE to do anything that you don't want to do. That's an important distinction to make."</p>

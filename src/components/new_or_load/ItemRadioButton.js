@@ -13,7 +13,7 @@ export const ItemRadioButton = ({item, game, setGame}) => {
                 name="item"
                 value={parseInt(item?.id)}
             />{" "}
-                    <p className="selection-text">{'> '}{item?.description}</p>
+                    <p className="selection-text">{'> '}{item?.name}</p>
         </label>
     </>
 }
