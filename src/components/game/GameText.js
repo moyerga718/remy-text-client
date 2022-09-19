@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { handleAction } from "../../managers/GameManager"
 import "./Game.css"
 
-export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
+export const GameText = ({ game, setGame, gameLog, setGameLog }) => {
     const [actionText, setActionText] = useState("")
 
     const handleKeyPress = e => {
@@ -10,7 +10,6 @@ export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
             handleSubmit(actionText, game)
         }
     }
-
 
     const handleSubmit = (text, game) => {
         const requestData = {
@@ -56,31 +55,6 @@ export const GameTest = ({ game, setGame, gameLog, setGameLog }) => {
     }
 
     return <>
-        {/* {
-            (game)
-                ? <div>
-                    <p dangerouslySetInnerHTML={{__html: gameLog}}/>
-                    <div className = "text-input-div">
-                    <p className = "game-input-arrow">{'>'}</p>
-                    <input
-                        required
-                        type="text"
-                        className="game-input"
-                        value={actionText}
-                        onChange={
-                            (evt) => {
-                                let copy = actionText
-                                copy = evt.target.value
-                                setActionText(copy)
-                            }
-                        }
-                        onKeyPress={(e) => handleKeyPress(e)}
-                    />
-                    </div>
-                </div>
-                : <></>
-        } */}
-
         {
             (game)
                 ? <p dangerouslySetInnerHTML={{ __html: gameLog }} />

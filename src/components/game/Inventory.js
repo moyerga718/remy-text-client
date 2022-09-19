@@ -7,7 +7,8 @@ export const Inventory = ({game}) => {
             (game.items)
             ? <>
                 {
-                    game?.items.map( item => <InventoryItem item={item}/>)
+                    game?.items.map( item => <InventoryItem key = {`item--${item.id}`}
+                    item={item}/>)
                 }
             </>
             : <></>

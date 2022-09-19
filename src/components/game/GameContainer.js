@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { getGame } from "../../managers/GameManager"
 import { useState, useEffect, useRef } from "react"
-import { GameTest } from "./GameTest"
+import { GameText } from "./GameText"
 import { Inventory } from "./Inventory"
 import { QuitButton } from "./QuitButton"
 import { Tips } from "./Tips"
@@ -45,7 +45,7 @@ export const GameContainer = () => {
             <div className="game-text-div">
                 {
                     (game.current_situation)
-                        ? <GameTest game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog} />
+                        ? <GameText game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog} />
                         : <></>
                 }
                 <div ref={bottomRef} />
