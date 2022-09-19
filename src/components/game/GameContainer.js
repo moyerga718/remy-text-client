@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { GameTest } from "./GameTest"
 import { Inventory } from "./Inventory"
 import { QuitButton } from "./QuitButton"
+import { Tips } from "./Tips"
 import "./Game.css"
 
 export const GameContainer = () => {
@@ -35,7 +36,7 @@ export const GameContainer = () => {
     useEffect(
         () => {
             bottomRef.current?.scrollIntoView();
-        }, 
+        },
         [gameLog]
     );
 
@@ -44,14 +45,17 @@ export const GameContainer = () => {
             <div className="game-text-div">
                 {
                     (game.current_situation)
-                    ? <GameTest game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog}/>
-                    : <></>
+                        ? <GameTest game={game} setGame={setGame} gameLog={gameLog} setGameLog={setGameLog} />
+                        : <></>
                 }
                 <div ref={bottomRef} />
             </div>
             <div className="inventory-div">
                 <Inventory game={game} />
-                <QuitButton />
+                <div>
+                    <Tips />
+                    <QuitButton />
+                </div>
             </div>
         </div>
     </>
