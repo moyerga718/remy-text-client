@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Remy: A Text-Based Adventure (front-end)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+Remy is a retro-inspired text-based adventure game. This repo is for the client-side portion of the game. 
 
-## Available Scripts
+A friend recently came to me and asked if I could build him an oldschool text-based adventure to promote an album he has coming out. I had never built anything like 
+this before, so I decided to make my own to see how it could work. The story is one that I came up with based on a memorable dream I had a few years back. 
 
-In the project directory, you can run:
+## Technologies Used
+The front-end for this project was built with React (Create React App).
 
-### `npm start`
+## How it works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Upon starting the app, the user is able to create an account, sign into an account, or go to an about page. After signing in, the user can start a new game, load 
+an existing game, or delete any of their existing games. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once the user is within the game screen, they are prompted with a situation (Ex. "There is a tree to the north of you with a red ball underneath it"), a text input, and a player inventory. The user progresses through the game by exploring the world, picking up items, and using those items in the proper places. The user can figure out how and where to use items by reading item descriptions and paying attention to environmental clues. 
 
-### `npm test`
+The user moves the player by responding to the situations with two-word phrases in the text input section. If the user wants to go north, they can type "Go North" into the text input and hit enter. This will send the text string and with the current game data to the backend server where the text string is parsed and validated. If the action is identified as a valid action for this situation, the game object is updated accordingly and sent back to the client side. The user is then prompted with a new situation and the process starts over.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The end of the game is triggered by going to a certain area after using specific items in the right place. There are two different endings, which trigger based on which items were used. I'd say more here, but I don't want to spoil the game!
 
-### `npm run build`
+## How to use it
+This app is deployed on Heroku, so no need to download the repo yourself. You can play it here: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I've done a little bit of play testing to make sure game flow is smooth, but I'm always up for critique on including other actions. Feel free to contact me with any suggestions!
