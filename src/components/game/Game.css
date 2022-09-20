@@ -5,22 +5,62 @@
 .game-container-div {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
-.inventory-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 2rem;
-    text-align: center;
-    border: solid white 3px;
-    margin: 1rem;
-    height: 90vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 3rem;
-    bottom: 1rem;
-    z-index: 1;
+@media only screen and (max-height: 574px) {
+    .inventory-div {
+        border: 3px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 2rem;
+        text-align: center;
+        margin: 1rem;
+        position: -webkit-sticky;
+        position: sticky;
+        height: 75vh;
+        top: 3rem;
+        bottom: 1rem;
+        z-index: 1;
+    }
+}
+
+
+@media only screen and (max-height: 850px) and (min-height: 575px){
+    .inventory-div {
+        border: 3px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 2rem;
+        text-align: center;
+        margin: 1rem;
+        height: 85vh;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 3rem;
+        bottom: 1rem;
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-height: 851px) {
+    .inventory-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 2rem;
+        text-align: center;
+        border: solid white 3px;
+        margin: 1rem;
+        height: 90vh;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 3rem;
+        bottom: 1rem;
+        z-index: 1;
+    }
 }
 
 .game-text-div {
