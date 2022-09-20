@@ -87,6 +87,24 @@ export const Register = ({ setToken, setUserId, setUsername }) => {
     return (
         <section className="columns is-centered">
             <form className="column is-two-thirds" onSubmit={handleRegister}>
+            <div>
+                <pre>
+                {`
+ ______    _______  __   __  __   __ 
+|    _ |  |       ||  |_|  ||  | |  |
+|   | ||  |    ___||       ||  |_|  |
+|   |_||_ |   |___ |       ||       |
+|    __  ||    ___||       ||_     _|
+|   |  | ||   |___ | ||_|| |  |   |  
+|___|  |_||_______||_|   |_|  |___|  
+`}
+
+                </pre>
+
+            </div>
+            <div>
+                <p>A text-based adventure game</p>
+            </div>
                 <p className="subtitle">Create an account</p>
                 <div className="field">
                     <label className="label">First Name:</label>

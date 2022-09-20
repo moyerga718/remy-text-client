@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import "./Game.css"
 
 
-export const NewGame = ({ userId }) => {
+export const NewGame = ({ userId, username }) => {
     const navigate = useNavigate()
     const [startingItems, setStartingItems] = useState([])
     const [name, setName] = useState("")
@@ -25,7 +25,7 @@ export const NewGame = ({ userId }) => {
 
     const handleKeyPress = e => {
         if (e.charCode === 13) {
-            const gameCopy = {...game}
+            const gameCopy = { ...game }
             gameCopy.first_name = name
             setGame(gameCopy)
         }
@@ -46,6 +46,25 @@ export const NewGame = ({ userId }) => {
     }
 
     return <>
+        <div>
+            <pre>
+                {`
+ ______    _______  __   __  __   __ 
+|    _ |  |       ||  |_|  ||  | |  |
+|   | ||  |    ___||       ||  |_|  |
+|   |_||_ |   |___ |       ||       |
+|    __  ||    ___||       ||_     _|
+|   |  | ||   |___ | ||_|| |  |   |  
+|___|  |_||_______||_|   |_|  |___|  
+`}
+            </pre>
+        </div>
+        <div>
+            <p>A text-based adventure game</p>
+        </div>
+        <div>
+            <p className="greeting-text">Hello, {username}</p>
+        </div>
         <p>Start a new game.</p>
 
         <div className="char-name-div">
@@ -87,11 +106,11 @@ export const NewGame = ({ userId }) => {
                 </div>
                 : <></>
         }
-        
+
         {
             (game.itemId > 0)
-            ? <button className="submit-button" onClick={handleSubmit}>Click here to start game</button>
-            : <></>
+                ? <button className="submit-button" onClick={handleSubmit}>Click here to start game</button>
+                : <></>
         }
     </>
 }

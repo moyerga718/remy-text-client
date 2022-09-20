@@ -55,6 +55,24 @@ export const Login = ({ setToken, setUserId, setUsername }) => {
     return (
         <section className="columns is-centered">
             <form className="column is-two-thirds" onSubmit={handleLogin}>
+            <div>
+                <pre>
+                {`
+ ______    _______  __   __  __   __ 
+|    _ |  |       ||  |_|  ||  | |  |
+|   | ||  |    ___||       ||  |_|  |
+|   |_||_ |   |___ |       ||       |
+|    __  ||    ___||       ||_     _|
+|   |  | ||   |___ | ||_|| |  |   |  
+|___|  |_||_______||_|   |_|  |___|  
+`}
+
+                </pre>
+
+            </div>
+            <div>
+                <p>A text-based adventure game</p>
+            </div>
                 <p className="subtitle">Please sign in</p>
 
                 <div className="field">

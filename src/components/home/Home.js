@@ -7,7 +7,22 @@ export const Home = ({ token, setToken, username, setUsername }) => {
     return <>
         <section>
             <div>
-                <p>REMY - A text based adventure game</p>
+                <pre>
+                {`
+ ______    _______  __   __  __   __ 
+|    _ |  |       ||  |_|  ||  | |  |
+|   | ||  |    ___||       ||  |_|  |
+|   |_||_ |   |___ |       ||       |
+|    __  ||    ___||       ||_     _|
+|   |  | ||   |___ | ||_|| |  |   |  
+|___|  |_||_______||_|   |_|  |___|  
+`}
+
+                </pre>
+
+            </div>
+            <div>
+                <p>A text-based adventure game</p>
             </div>
             {
                 token
