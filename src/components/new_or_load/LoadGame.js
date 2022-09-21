@@ -26,24 +26,23 @@ export const LoadGame = ({ userId, username }) => {
     }
 
     return <>
-        <div>
-            <pre>
-                {`
- ______    _______  __   __  __   __ 
-|    _ |  |       ||  |_|  ||  | |  |
-|   | ||  |    ___||       ||  |_|  |
-|   |_||_ |   |___ |       ||       |
-|    __  ||    ___||       ||_     _|
-|   |  | ||   |___ | ||_|| |  |   |  
-|___|  |_||_______||_|   |_|  |___|  
+    <div>
+                <pre>
+                    {`
+ ______     ______     __    __     __  __    
+/\\  == \\   /\\  ___\\   /\\ "-./  \\   /\\ \\_\\ \\   
+\\ \\  __<   \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\____ \\  
+ \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\/\\_____\\ 
+  \\/_/ /_/   \\/_____/   \\/_/  \\/_/   \\/_____/                                           
 `}
 
-            </pre>
+                </pre>
 
-        </div>
-        <div>
-            <p>A text-based adventure game</p>
-        </div>
+            </div>
+            <div>
+                <p>A text-based adventure game</p>
+            </div>
+
         <p className="greeting-text">Hello, {username}</p>
         <p>Choose a game.</p>
         <div className="character-selection-div">

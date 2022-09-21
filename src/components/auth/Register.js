@@ -89,14 +89,12 @@ export const Register = ({ setToken, setUserId, setUsername }) => {
             <form className="column is-two-thirds" onSubmit={handleRegister}>
             <div>
                 <pre>
-                {`
- ______    _______  __   __  __   __ 
-|    _ |  |       ||  |_|  ||  | |  |
-|   | ||  |    ___||       ||  |_|  |
-|   |_||_ |   |___ |       ||       |
-|    __  ||    ___||       ||_     _|
-|   |  | ||   |___ | ||_|| |  |   |  
-|___|  |_||_______||_|   |_|  |___|  
+                    {`
+ ______     ______     __    __     __  __    
+/\\  == \\   /\\  ___\\   /\\ "-./  \\   /\\ \\_\\ \\   
+\\ \\  __<   \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\____ \\  
+ \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\/\\_____\\ 
+  \\/_/ /_/   \\/_____/   \\/_/  \\/_/   \\/_____/                                           
 `}
 
                 </pre>
@@ -105,6 +103,7 @@ export const Register = ({ setToken, setUserId, setUsername }) => {
             <div>
                 <p>A text-based adventure game</p>
             </div>
+
                 <p className="subtitle">Create an account</p>
                 <div className="field">
                     <label className="label">First Name:</label>

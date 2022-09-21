@@ -55,24 +55,23 @@ export const Login = ({ setToken, setUserId, setUsername }) => {
     return (
         <section className="columns is-centered">
             <form className="column is-two-thirds" onSubmit={handleLogin}>
-            <div>
-                <pre>
-                {`
- ______    _______  __   __  __   __ 
-|    _ |  |       ||  |_|  ||  | |  |
-|   | ||  |    ___||       ||  |_|  |
-|   |_||_ |   |___ |       ||       |
-|    __  ||    ___||       ||_     _|
-|   |  | ||   |___ | ||_|| |  |   |  
-|___|  |_||_______||_|   |_|  |___|  
+                <div>
+                    <pre>
+                        {`
+ ______     ______     __    __     __  __    
+/\\  == \\   /\\  ___\\   /\\ "-./  \\   /\\ \\_\\ \\   
+\\ \\  __<   \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\____ \\  
+ \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\/\\_____\\ 
+  \\/_/ /_/   \\/_____/   \\/_/  \\/_/   \\/_____/                                           
 `}
 
-                </pre>
+                    </pre>
 
-            </div>
-            <div>
-                <p>A text-based adventure game</p>
-            </div>
+                </div>
+                <div>
+                    <p>A text-based adventure game</p>
+                </div>
+                
                 <p className="subtitle">Please sign in</p>
 
                 <div className="field">
@@ -97,9 +96,9 @@ export const Login = ({ setToken, setUserId, setUsername }) => {
                             <label className="label">Password:</label>
                             <div className="control">
                                 <p>{'> '}</p>
-                                <input 
-                                    className="game-input" 
-                                    type="password" 
+                                <input
+                                    className="game-input"
+                                    type="password"
                                     ref={password}
                                     autoFocus
                                     name="password"
@@ -114,13 +113,13 @@ export const Login = ({ setToken, setUserId, setUsername }) => {
                 }
                 {
                     (passwordBool)
-                    ? <div className="field is-grouped">
-                        <div className="control">
-                            <p>Logging in...</p>
-                            {/* <button className="submit-button" type="submit" >Entering...</button> */}
+                        ? <div className="field is-grouped">
+                            <div className="control">
+                                <p>Logging in...</p>
+                                {/* <button className="submit-button" type="submit" >Entering...</button> */}
+                            </div>
                         </div>
-                    </div>
-                    : <></>
+                        : <></>
                 }
                 {
                     isUnsuccessful ? <p className="help is-danger">Username or password not valid. Try again.</p> : ''

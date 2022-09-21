@@ -1,5 +1,5 @@
 export const createNewGame = (gameObj) => {
-    return fetch('http://localhost:8000/games', {
+    return fetch('https://remy-text-adventure.herokuapp.com/games', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export const createNewGame = (gameObj) => {
 }
 
 export const getUserGames = () => {
-    return fetch('http://localhost:8000/games/my_games', {
+    return fetch('https://remy-text-adventure.herokuapp.com/games/my_games', {
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         }
@@ -20,7 +20,7 @@ export const getUserGames = () => {
 }
 
 export const getGame = (gameId) => {
-    return fetch(`http://localhost:8000/games/${gameId}`, {
+    return fetch(`https://remy-text-adventure.herokuapp.com/games/${gameId}`, {
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         }
@@ -29,7 +29,7 @@ export const getGame = (gameId) => {
 }
 
 export const deleteGame = (gameId) => {
-    return fetch(`http://localhost:8000/games/${gameId}`, {
+    return fetch(`https://remy-text-adventure.herokuapp.com/games/${gameId}`, {
         method: "DELETE",
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
@@ -38,7 +38,7 @@ export const deleteGame = (gameId) => {
 }
 
 export const handleAction = (gameId, actionData) => {
-    return fetch(`http://localhost:8000/games/${gameId}/handle_action`, {
+    return fetch(`https://remy-text-adventure.herokuapp.com/games/${gameId}/handle_action`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',

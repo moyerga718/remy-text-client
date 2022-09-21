@@ -8,14 +8,12 @@ export const Home = ({ token, setToken, username, setUsername }) => {
         <section>
             <div>
                 <pre>
-                {`
- ______    _______  __   __  __   __ 
-|    _ |  |       ||  |_|  ||  | |  |
-|   | ||  |    ___||       ||  |_|  |
-|   |_||_ |   |___ |       ||       |
-|    __  ||    ___||       ||_     _|
-|   |  | ||   |___ | ||_|| |  |   |  
-|___|  |_||_______||_|   |_|  |___|  
+                    {`
+ ______     ______     __    __     __  __    
+/\\  == \\   /\\  ___\\   /\\ "-./  \\   /\\ \\_\\ \\   
+\\ \\  __<   \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\____ \\  
+ \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\/\\_____\\ 
+  \\/_/ /_/   \\/_____/   \\/_/  \\/_/   \\/_____/                                  
 `}
 
                 </pre>
@@ -24,10 +22,11 @@ export const Home = ({ token, setToken, username, setUsername }) => {
             <div>
                 <p>A text-based adventure game</p>
             </div>
+
             {
                 token
                     ? <>
-                        <div className = "home-container">
+                        <div className="home-container">
                             <p>Hello, {username}</p>
                             <Link to="/new" className="link-text">
                                 {'>'} New Game
@@ -38,16 +37,16 @@ export const Home = ({ token, setToken, username, setUsername }) => {
                             <Link to="/about" className="link-text">
                                 {'>'} About
                             </Link>
-                            <Link to="/" className="link-text" onClick={() => { 
-                                setToken('') 
+                            <Link to="/" className="link-text" onClick={() => {
+                                setToken('')
                                 setUsername('')
-                                }}>
+                            }}>
                                 {'>'} Log out
                             </Link>
                         </div>
                     </>
                     : <>
-                        <div className = "home-container">
+                        <div className="home-container">
                             <Link to="/login" className="link-text">
                                 {'>'} Sign in
                             </Link>

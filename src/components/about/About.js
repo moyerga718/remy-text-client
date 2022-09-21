@@ -4,14 +4,12 @@ export const About = () => {
     return <>
     <div>
                 <pre>
-                {`
- ______    _______  __   __  __   __ 
-|    _ |  |       ||  |_|  ||  | |  |
-|   | ||  |    ___||       ||  |_|  |
-|   |_||_ |   |___ |       ||       |
-|    __  ||    ___||       ||_     _|
-|   |  | ||   |___ | ||_|| |  |   |  
-|___|  |_||_______||_|   |_|  |___|  
+                    {`
+ ______     ______     __    __     __  __    
+/\\  == \\   /\\  ___\\   /\\ "-./  \\   /\\ \\_\\ \\   
+\\ \\  __<   \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\____ \\  
+ \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\/\\_____\\ 
+  \\/_/ /_/   \\/_____/   \\/_/  \\/_/   \\/_____/                                               
 `}
 
                 </pre>
@@ -20,6 +18,7 @@ export const About = () => {
             <div>
                 <p>A text-based adventure game</p>
             </div>
+
         <div className="about-div">
             <div className="about-text-div">
                 <p className="about-text">The skin on your ankle breaks when you go to scratch this time. Three months of summer went by and you still can't resist the urge.</p>

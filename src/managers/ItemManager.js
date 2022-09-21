@@ -1,5 +1,5 @@
 export const getStartingItems = () => {
-    return fetch('http://localhost:8000/items/starting', {
+    return fetch('https://remy-text-adventure.herokuapp.com/items/starting', {
         headers: {
             'Authorization': `Token ${localStorage.getItem('auth_token')}`
         }
