@@ -22,5 +22,6 @@ The end of the game is triggered by going to a certain area after using specific
 
 ## How to use it
 This app is deployed on Heroku, so no need to download the repo yourself. You can play it here: 
+https://remy-adventure.herokuapp.com/
 
-I've done a little bit of play testing to make sure game flow is smooth, but I'm always up for critique on including other actions. Feel free to contact me with any suggestions!
+I've done a little bit of play testing to make sure game flow is smooth, but I'm always up for critique or input (including other actions, situaitons, etc...). Feel free to contact me with any suggestions!
