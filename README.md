@@ -16,9 +16,3 @@ Once the user is within the game screen, they are prompted with a situation (Ex.
 The user moves the player by responding to the situations with two-word phrases in the text input section. If the user wants to go north, they can type "Go North" into the text input and hit enter. This will send the text string and with the current game data to the backend server where the text string is parsed and validated. If the action is identified as a valid action for this situation, the game object is updated accordingly and sent back to the client side. The user is then prompted with a new situation and the process starts over.
 
 The end of the game is triggered by going to a certain area after using specific items in the right place. There are two different endings, which trigger based on which items were used. I'd say more here, but I don't want to spoil the game!
-
-## How to use it
-This app is deployed on Heroku, so no need to download the repo yourself. You can play it here: 
-https://remy-adventure.herokuapp.com/
-
-I've done a little bit of play testing to make sure game flow is smooth, but I'm always up for critique or input (including other actions, situaitons, etc...). Feel free to contact me with any suggestions!
